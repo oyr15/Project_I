@@ -25,11 +25,19 @@ public class Lotto extends JFrame implements ActionListener{
   JLabel lotto5;
   JLabel lotto6;
   JLabel label;
+  JLabel check;
  
+  JLabel lotto1_master;
+  JLabel lotto2_master;
+  JLabel lotto3_master;
+  JLabel lotto4_master;
+  JLabel lotto5_master;
+  JLabel lotto6_master;
 
  public static void main(String args[]){
+	 
   Lotto bb=new Lotto();
-  bb.setSize(660,400);
+  bb.setSize(660,750);
   bb.setVisible(true);
  }
   
@@ -45,7 +53,18 @@ public class Lotto extends JFrame implements ActionListener{
      start_display();
  }
  void writeTest(){
-  
+	 int ball_master[] = new int[45];  //로또 번호는 1부터 45까지
+	  for(int i = 0; i < ball_master.length; i++ ){
+	   ball_master[i] = i + 1; //i=0이면 ball[0]은 1
+	  }
+	     int temp_master = 0; //임시값 저장
+	     int j_master = 0;
+	     for(int i = 0; i < 100 ; i++){ //랜덤화
+	      j_master= (int)(Math.random() * 45);  //랜덤한 값을 j에 저장
+	      temp_master = ball_master[0];  //ball[0]을 temp에 임시 저장
+	      ball_master[0] = ball_master[j_master];  //랜덤값 ball[j]를 ball[0]에 저장
+	      ball_master[j_master] = temp_master;		//임시저장한 값을 ball[j]에 저장
+	     }
  }
 
  public void start_display(){
@@ -79,6 +98,22 @@ public class Lotto extends JFrame implements ActionListener{
   lotto5 = new JLabel(new ImageIcon("./imageLotto/lotto2.png"));
   lotto6 = new JLabel(new ImageIcon("./imageLotto/lotto4.png"));
   
+  lotto1_master = new JLabel(new ImageIcon("./imageLotto/lotto1.png"));
+  lotto2_master = new JLabel(new ImageIcon("./imageLotto/lotto2.png"));
+  lotto3_master = new JLabel(new ImageIcon("./imageLotto/lotto3.png"));
+  lotto4_master = new JLabel(new ImageIcon("./imageLotto/lotto3.png"));
+  lotto5_master = new JLabel(new ImageIcon("./imageLotto/lotto2.png"));
+  lotto6_master = new JLabel(new ImageIcon("./imageLotto/lotto4.png"));
+  
+  
+  
+     
+  check = new JLabel("당첨번호");
+  check.setForeground(Color.red);
+  check.setFont(new Font("", Font.PLAIN, 28));
+  
+ 
+  
   ok.setBounds(110,250,130,30); 
   close.setBounds(390,250,130,30);
   title.setBounds(160,20,120,80);
@@ -90,6 +125,15 @@ public class Lotto extends JFrame implements ActionListener{
   lotto5.setBounds(420,120,100,100);
   lotto6.setBounds(520,120,100,100);
   label.setBounds(new Rectangle(300, 50, 300, 50));
+  check.setBounds(262,350,200,30);
+  
+  lotto1_master.setBounds(20,420,100,100);
+  lotto2_master.setBounds(120,420,100,100);
+  lotto3_master.setBounds(220,420,100,100);
+  lotto4_master.setBounds(320,420,100,100);
+  lotto5_master.setBounds(420,420,100,100);
+  lotto6_master.setBounds(520,420,100,100);
+  
   
   
   cpane.add(label);
@@ -104,6 +148,14 @@ public class Lotto extends JFrame implements ActionListener{
   cpane.add(lotto4);
   cpane.add(lotto5);
   cpane.add(lotto6);
+  cpane.add(check);
+  
+  cpane.add(lotto1_master);
+  cpane.add(lotto2_master);
+  cpane.add(lotto3_master);
+  cpane.add(lotto4_master);
+  cpane.add(lotto5_master);
+  cpane.add(lotto6_master);
   
   ok.addActionListener(this);
   close.addActionListener(this);
@@ -114,24 +166,53 @@ public class Lotto extends JFrame implements ActionListener{
   
   
   if(e.getSource() == ok){
-   int ball[] = new int[45];  //로또 번호는 1부터 45까지
-   for(int i = 0; i < ball.length; i++ ){
-    ball[i] = i + 1; //i=0이면 ball[0]은 1
-   }
-      int temp = 0; //임시값 저장
-      int j = 0;
-      for(int i = 0; i < 100 ; i++){ //랜덤화
-       j= (int)(Math.random() * 45);  //랜덤한 값을 j에 저장
-       temp = ball[0];  //ball[0]을 temp에 임시 저장
-       ball[0] = ball[j];  //랜덤값 ball[j]를 ball[0]에 저장
-       ball[j] = temp;		//임시저장한 값을 ball[j]에 저장
-      }
+	  
+	  
+	  
+	  
+	  	 int ball_master[] = new int[45];  //로또 번호는 1부터 45까지
+	  		for(int i = 0; i < ball_master.length; i++ ){
+	  			ball_master[i] = i + 1; //i=0이면 ball[0]은 1
+	  		}
+	  	 int temp_master = 0; //임시값 저장
+	     int j_master = 0;
+	     for(int i = 0; i < 100 ; i++){ //랜덤화
+	      j_master= (int)(Math.random() * 45);  //랜덤한 값을 j에 저장
+	      temp_master = ball_master[0];  //ball[0]을 temp에 임시 저장
+	      ball_master[0] = ball_master[j_master];  //랜덤값 ball[j]를 ball[0]에 저장
+	      ball_master[j_master] = temp_master;		//임시저장한 값을 ball[j]에 저장
+	     }
+	  
+	      
+	     int ball[] = new int[45];  //로또 번호는 1부터 45까지
+	     	for(int i = 0; i < ball.length; i++ ){
+	     		ball[i] = i + 1; //i=0이면 ball[0]은 1
+	     	}
+	     int temp = 0; //임시값 저장
+	     int j = 0;
+	     for(int i = 0; i < 100 ; i++){ //랜덤화
+	    	 j= (int)(Math.random() * 45);  //랜덤한 값을 j에 저장
+	    	 temp = ball[0];  //ball[0]을 temp에 임시 저장
+	    	 ball[0] = ball[j];  //랜덤값 ball[j]를 ball[0]에 저장
+	    	 ball[j] = temp;		//임시저장한 값을 ball[j]에 저장
+	     }
+      
+      
+      
       lotto1.setIcon(new ImageIcon("./imageLotto/"+ball[0]+".png"));
       lotto2.setIcon(new ImageIcon("./imageLotto/"+ball[1]+".png"));
       lotto3.setIcon(new ImageIcon("./imageLotto/"+ball[2]+".png"));
       lotto4.setIcon(new ImageIcon("./imageLotto/"+ball[3]+".png"));
       lotto5.setIcon(new ImageIcon("./imageLotto/"+ball[4]+".png"));
       lotto6.setIcon(new ImageIcon("./imageLotto/"+ball[5]+".png"));
+      
+      lotto1_master.setIcon(new ImageIcon("./imageLotto/"+ball_master[0]+".png"));
+      lotto2_master.setIcon(new ImageIcon("./imageLotto/"+ball_master[1]+".png"));
+      lotto3_master.setIcon(new ImageIcon("./imageLotto/"+ball_master[2]+".png"));
+      lotto4_master.setIcon(new ImageIcon("./imageLotto/"+ball_master[3]+".png"));
+      lotto5_master.setIcon(new ImageIcon("./imageLotto/"+ball_master[4]+".png"));
+      lotto6_master.setIcon(new ImageIcon("./imageLotto/"+ball_master[5]+".png"));
+      
   }else if(e.getSource() == close){
    System.exit(0);
   }else if(e.getSource() == reset){
@@ -141,6 +222,13 @@ public class Lotto extends JFrame implements ActionListener{
    lotto4.setIcon(new ImageIcon("imageLotto/lotto3.png"));
    lotto5.setIcon(new ImageIcon("imageLotto/lotto2.png"));
    lotto6.setIcon(new ImageIcon("imageLotto/lotto4.png"));
+   
+   lotto1_master.setIcon(new ImageIcon("imageLotto/lotto1.png"));
+   lotto2_master.setIcon(new ImageIcon("imageLotto/lotto2.png"));
+   lotto3_master.setIcon(new ImageIcon("imageLotto/lotto3.png"));
+   lotto4_master.setIcon(new ImageIcon("imageLotto/lotto3.png"));
+   lotto5_master.setIcon(new ImageIcon("imageLotto/lotto2.png"));
+   lotto6_master.setIcon(new ImageIcon("imageLotto/lotto4.png"));
   }
   
 
