@@ -35,7 +35,7 @@ public class Lotto extends JFrame implements ActionListener{
   
 
  public Lotto(){
-  super("I조 로또추첨프로그램");  
+  super("I議� 濡쒕삉異붿꺼�봽濡쒓렇�옩");  
   this.addWindowListener(new WindowAdapter() { public void windowClosing(WindowEvent e) {System.exit(0);}});
      try{
      UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -114,17 +114,17 @@ public class Lotto extends JFrame implements ActionListener{
   
   
   if(e.getSource() == ok){
-   int ball[] = new int[45];  //로또 번호는 1부터 45까지
+   int ball[] = new int[45];  //濡쒕삉 踰덊샇�뒗 1遺��꽣 45源뚯�
    for(int i = 0; i < ball.length; i++ ){
-    ball[i] = i + 1; //i=0이면 ball[0]은 1
+    ball[i] = i + 1; //i=0�씠硫� ball[0]�� 1
    }
-      int temp = 0; //임시값 저장
+      int temp = 0; //�엫�떆媛� ���옣
       int j = 0;
-      for(int i = 0; i < 100 ; i++){ //랜덤화
-       j= (int)(Math.random() * 45);  //랜덤한 값을 j에 저장
-       temp = ball[0];  //ball[0]을 temp에 임시 저장
-       ball[0] = ball[j];  //랜덤값 ball[j]를 ball[0]에 저장
-       ball[j] = temp;		//임시저장한 값을 ball[j]에 저장
+      for(int i = 0; i < 100 ; i++){ //�옖�뜡�솕
+       j= (int)(Math.random() * 45);  //�옖�뜡�븳 媛믪쓣 j�뿉 ���옣
+       temp = ball[0];  //ball[0]�쓣 temp�뿉 �엫�떆 ���옣
+       ball[0] = ball[j];  //�옖�뜡媛� ball[j]瑜� ball[0]�뿉 ���옣
+       ball[j] = temp;		//�엫�떆���옣�븳 媛믪쓣 ball[j]�뿉 ���옣
       }
       lotto1.setIcon(new ImageIcon("./imageLotto/"+ball[0]+".png"));
       lotto2.setIcon(new ImageIcon("./imageLotto/"+ball[1]+".png"));
