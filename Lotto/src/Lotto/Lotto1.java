@@ -233,8 +233,9 @@ public class Lotto1 extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e){
 		
-		
-		
+	  	 int ball_master[] = new int[45];  //로또 번호는 1부터 45까지
+	     int ball[] = new int[45];  //로또 번호는 1부터 45까지
+
 		
 		//static int count=5;
 		int A[] = new int [6], B[] = new int [6], C[] = new int [6],
@@ -245,7 +246,6 @@ public class Lotto1 extends JFrame implements ActionListener{
 			  
 			  
 			  
-		  	 int ball_master[] = new int[45];  //로또 번호는 1부터 45까지
 		  		for(int i = 0; i < ball_master.length; i++ ){
 		  			ball_master[i] = i + 1; //i=0이면 ball[0]은 1
 		  		}
@@ -259,7 +259,6 @@ public class Lotto1 extends JFrame implements ActionListener{
 		     }
 		  
 		      
-		     int ball[] = new int[45];  //로또 번호는 1부터 45까지
 		     	for(int i = 0; i < ball.length; i++ ){
 		     		ball[i] = i + 1; //i=0이면 ball[0]은 1
 		     	}
@@ -385,6 +384,30 @@ public class Lotto1 extends JFrame implements ActionListener{
 				default :
 					break;
 				}
+				 int x = 0;
+			      
+			      for(int i = 0; i<6; i++){
+			    	  for(int k = 0; k<7;k++) {
+			    		  if(ball[i] == ball_master[k]) {
+			    			  x++;
+			    		  	
+			    		  }
+			    	  }
+			      }
+			      if(x <= 1)
+			      JOptionPane.showMessageDialog(null, "꽝", "당첨결과", JOptionPane.PLAIN_MESSAGE);
+			      if(x ==2)
+				  JOptionPane.showMessageDialog(null, "5등", "당첨결과", JOptionPane.PLAIN_MESSAGE);
+			      if(x ==3)
+					  JOptionPane.showMessageDialog(null, "4등", "당첨결과", JOptionPane.PLAIN_MESSAGE);
+			      if(x ==4)
+					  JOptionPane.showMessageDialog(null, "3등", "당첨결과", JOptionPane.PLAIN_MESSAGE);
+			      if(x ==5)
+					  JOptionPane.showMessageDialog(null, "2등", "당첨결과", JOptionPane.PLAIN_MESSAGE);
+			      if(x ==6)
+					  JOptionPane.showMessageDialog(null, "1등", "당첨결과", JOptionPane.PLAIN_MESSAGE);
+
+				
 
 
 
