@@ -230,23 +230,22 @@ public class Lotto1 extends JFrame implements ActionListener{
 		reset.addActionListener(this);
 		change.addActionListener(this);
 	}
-
+	 int ball_master[] = new int[45];  //로또 번호는 1부터 45까지
+	 
+	 int ball[] = new int[45];  //로또 번호는 1부터 45까지
 	public void actionPerformed(ActionEvent e){
+		 
 		
-	  	 int ball_master[] = new int[45];  //로또 번호는 1부터 45까지
-	     int ball[] = new int[45];  //로또 번호는 1부터 45까지
-
+			
 		
 		//static int count=5;
 		int A[] = new int [6], B[] = new int [6], C[] = new int [6],
 				D[] = new int [6], E[] = new int [6];
 
 		 if(e.getSource() == ok){
-			  
-			  
-			  
-			  
-		  		for(int i = 0; i < ball_master.length; i++ ){
+			 
+			 
+		     for(int i = 0; i < ball_master.length; i++ ){
 		  			ball_master[i] = i + 1; //i=0이면 ball[0]은 1
 		  		}
 		  	 int temp_master = 0; //임시값 저장
@@ -257,20 +256,23 @@ public class Lotto1 extends JFrame implements ActionListener{
 		      ball_master[0] = ball_master[j_master];  //랜덤값 ball[j]를 ball[0]에 저장
 		      ball_master[j_master] = temp_master;		//임시저장한 값을 ball[j]에 저장
 		     }
-		  
-		      
+			  
+		     
+			 
 		     	for(int i = 0; i < ball.length; i++ ){
-		     		ball[i] = i + 1; //i=0이면 ball[0]은 1
-		     	}
-		     int temp = 0; //임시값 저장
-		     int j = 0;
-		     for(int i = 0; i < 100 ; i++){ //랜덤화
-		    	 j= (int)(Math.random() * 45);  //랜덤한 값을 j에 저장
-		    	 temp = ball[0];  //ball[0]을 temp에 임시 저장
-		    	 ball[0] = ball[j];  //랜덤값 ball[j]를 ball[0]에 저장
-		    	 ball[j] = temp;		//임시저장한 값을 ball[j]에 저장
-		     }
-	      
+			     		ball[i] = i + 1; //i=0이면 ball[0]은 1
+			     	}
+			     int temp = 0; //임시값 저장
+			     int j = 0;
+			     for(int i = 0; i < 100 ; i++){ //랜덤화
+			    	 j= (int)(Math.random() * 45);  //랜덤한 값을 j에 저장
+			    	 temp = ball[0];  //ball[0]을 temp에 임시 저장
+			    	 ball[0] = ball[j];  //랜덤값 ball[j]를 ball[0]에 저장
+			    	 ball[j] = temp;		//임시저장한 값을 ball[j]에 저장
+			     }
+			  
+			  
+		  		
 	      
 	      
 	      lotto1.setIcon(new ImageIcon("./imageLotto/"+ball[0]+".png"));
@@ -385,6 +387,7 @@ public class Lotto1 extends JFrame implements ActionListener{
 					break;
 				}
 				 int x = 0;
+				 
 			      
 			      for(int i = 0; i<6; i++){
 			    	  for(int k = 0; k<7;k++) {
@@ -407,8 +410,7 @@ public class Lotto1 extends JFrame implements ActionListener{
 			      if(x ==6)
 					  JOptionPane.showMessageDialog(null, "1등", "당첨결과", JOptionPane.PLAIN_MESSAGE);
 
-				
-
+			      
 
 
 			}
