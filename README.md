@@ -73,9 +73,12 @@ How to use
 ----
 
 ## More
-+ 프로그램 실행파일(.exe)
-* 시연영상(.mp4)
-- 발표자료(.ppt)
++ [프로그램 실행파일(.exe)](https://korn123.blog.me/30097873872)
+* [시연영상(.mp4)](https://github.com/oyr15/Project_I/blob/master/%EB%A1%9C%EB%98%90%20%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81.mp4)
+- [발표자료(.ppt)](https://github.com/oyr15/Project_I/blob/master/I%EC%A1%B0%20%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4%20%EB%A1%9C%EB%98%90%20(2).pptx)
+
+
+
 
 
 @tpgns8488 :+1: How to use markdown? :tophat: 
